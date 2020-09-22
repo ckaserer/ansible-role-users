@@ -11,8 +11,16 @@ notifications:
     on_success: never
     on_failure: never
   slack:
-    secure: LNtVgp3oLfOEAfPLkmdf1OLea0eE7+y6NnDgHUHq7jCY+diRIc6LLiRkOGg4RT6YbOotUbqpVfNh86WU6iAAAppEpVtHKm3qzxnjOXn8kR432I9JxocMHVHnM4kM7G0KIF3w1lzd29ORpfebV1u8d3SHjKhGltFzY5N9yY2Ywf/aQ2kSjEr4B2dudpExH2tAu9WboEZhd/ENFiLdU6SVZcYF9g7Bq7cpHbMZxR4TAciGnYJu70SlHycxNdQjjsto307lB8lsc9MMdLDeXcQUVVbdlmCqcvLEfRcnkjdQbymoEXor7CL3rmoMn7TE7pYZMVwDHvOWenj9Cte5Plekl32LXHaaEAk+x8owINRtHIm9FJKp67OaC9/Z90M92AiK7jY9yWwuUju/j6rt5CKj0nhk49ITYNkGE5tS6PLncWKTK14MVTdb4kf6mxjzfKD0egegH0SrAvK76EDWnQ0hrpX8sO+x/6j9RT+dbdh51GhrZJOaHQk9RzJic3IhaF6nCKtnHnQH94wPSljMW8by8SUn19Lad0T4pzi4aGgyxU4r3MsqGXPomLgwgHquHFaAQlaTd5MfThgVo+37meviYsETyILJ5nzM9T+i+ejh8+irz7v4IAD9SK3iIdgDA04nEdQQC+E3sDsPDC/sy1mHZw9rkgWyX7XtD661f5hzP1I=
-  webhooks: https://galaxy.ansible.com/api/v1/notifications/
+    if: branch = master
+    rooms:
+      secure: LNtVgp3oLfOEAfPLkmdf1OLea0eE7+y6NnDgHUHq7jCY+diRIc6LLiRkOGg4RT6YbOotUbqpVfNh86WU6iAAAppEpVtHKm3qzxnjOXn8kR432I9JxocMHVHnM4kM7G0KIF3w1lzd29ORpfebV1u8d3SHjKhGltFzY5N9yY2Ywf/aQ2kSjEr4B2dudpExH2tAu9WboEZhd/ENFiLdU6SVZcYF9g7Bq7cpHbMZxR4TAciGnYJu70SlHycxNdQjjsto307lB8lsc9MMdLDeXcQUVVbdlmCqcvLEfRcnkjdQbymoEXor7CL3rmoMn7TE7pYZMVwDHvOWenj9Cte5Plekl32LXHaaEAk+x8owINRtHIm9FJKp67OaC9/Z90M92AiK7jY9yWwuUju/j6rt5CKj0nhk49ITYNkGE5tS6PLncWKTK14MVTdb4kf6mxjzfKD0egegH0SrAvK76EDWnQ0hrpX8sO+x/6j9RT+dbdh51GhrZJOaHQk9RzJic3IhaF6nCKtnHnQH94wPSljMW8by8SUn19Lad0T4pzi4aGgyxU4r3MsqGXPomLgwgHquHFaAQlaTd5MfThgVo+37meviYsETyILJ5nzM9T+i+ejh8+irz7v4IAD9SK3iIdgDA04nEdQQC+E3sDsPDC/sy1mHZw9rkgWyX7XtD661f5hzP1I=
+    template:
+      - "%{commit_subject}"
+      - build <%{build_url}|#%{build_number}> (<%{compare_url}|%{commit}>) @%{branch}
+      - by %{author} %{result} in %{duration}
+    on_success: change
+    on_failure: always
+    webhooks: https://galaxy.ansible.com/api/v1/notifications/
 install:
   - pip install -r requirements.txt
 env:
