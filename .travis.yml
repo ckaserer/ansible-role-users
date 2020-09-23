@@ -13,11 +13,11 @@ notifications:
   slack:
     if: branch = master
     rooms:
-      secure: LNtVgp3oLfOEAfPLkmdf1OLea0eE7+y6NnDgHUHq7jCY+diRIc6LLiRkOGg4RT6YbOotUbqpVfNh86WU6iAAAppEpVtHKm3qzxnjOXn8kR432I9JxocMHVHnM4kM7G0KIF3w1lzd29ORpfebV1u8d3SHjKhGltFzY5N9yY2Ywf/aQ2kSjEr4B2dudpExH2tAu9WboEZhd/ENFiLdU6SVZcYF9g7Bq7cpHbMZxR4TAciGnYJu70SlHycxNdQjjsto307lB8lsc9MMdLDeXcQUVVbdlmCqcvLEfRcnkjdQbymoEXor7CL3rmoMn7TE7pYZMVwDHvOWenj9Cte5Plekl32LXHaaEAk+x8owINRtHIm9FJKp67OaC9/Z90M92AiK7jY9yWwuUju/j6rt5CKj0nhk49ITYNkGE5tS6PLncWKTK14MVTdb4kf6mxjzfKD0egegH0SrAvK76EDWnQ0hrpX8sO+x/6j9RT+dbdh51GhrZJOaHQk9RzJic3IhaF6nCKtnHnQH94wPSljMW8by8SUn19Lad0T4pzi4aGgyxU4r3MsqGXPomLgwgHquHFaAQlaTd5MfThgVo+37meviYsETyILJ5nzM9T+i+ejh8+irz7v4IAD9SK3iIdgDA04nEdQQC+E3sDsPDC/sy1mHZw9rkgWyX7XtD661f5hzP1I=
+      secure: fPpCm5YBxVz2imcZ1Ll7bckFMsTlXXZUVTxPBw8Brit0ogTwopq/HdTxCyutzPT0MSA5UyAVcqJQbuhiFNbkIxz90qQRDPIBaxmdq6o0Z+TVsCBgb9fI0VckDI7twHgzlsDd8LDRMd24D1oOF9MPMDgg7cU/NbZd+JtIkqTXEHDOkNOHjRfEl8YXBWlJIkRwI6EvZvrbXCh5BgEHbB1BI5vVp4QFfHLcHjO383cxNWp8NUHBqcheG3Lq2pidjcmhahJMhsncG6eXY8L4hqFX+qfEaOZfoIaUSeT2INY0xGXnGW/WpVI9nr6tDxaw3TmGJ2StyalfsnpljwEZs+fyMxKcH7xMEu7jdWKlHhu7oTvsu0MK1PnX884j5mL1cKOFC+DxgDqZgwa1lX7Y7CdyTiVJvVXY8K08BaMT5VUPsCV9/4p4nZyCYhbjguhY0pKWr9VwjC1+702Pkm/HDnoCxnCdMag8bdgchqP1EuHwJzk4Rii//M68LZZqlPxYREZdyMs126xdaARVI/OKzfBWnb3GkaAXSsJvyQYEDGumJobKwiSi/Tl3JWrI9BUKN0cGplfy4QgQRphIeV/eHEgAbn886eJRgnMfFStqiQu00TNXeaXv4EWAfXW0wCpwMex0ltgXV6mPoNEC4kLSx95OYOTWepdwHi+Vi2KpSgsaq3c=
     template:
-      - "%{commit_subject}"
-      - build <%{build_url}|#%{build_number}> (<%{compare_url}|%{commit}>) @%{branch}
-      - by %{author} %{result} in %{duration}
+    - "%{commit_subject}"
+    - build <%{build_url}|#%{build_number}> (<%{compare_url}|%{commit}>) @%{branch}
+    - by %{author} %{result} in %{duration}
     on_success: change
     on_failure: always
     webhooks: https://galaxy.ansible.com/api/v1/notifications/

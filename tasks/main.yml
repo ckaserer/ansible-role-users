@@ -6,7 +6,7 @@
       append: yes
       state: present
       createhome: yes
-    with_items: "{{ users_users }}"
+    with_items: "{{ users }}"
 
   - name: Copy password
     copy:
@@ -14,5 +14,5 @@
       dest: "/home/{{ item }}/.password"
       owner: "{{ item }}"
       mode: '0400'
-    with_items: "{{ users_users }}"
+    with_items: "{{ users }}"
 ...
