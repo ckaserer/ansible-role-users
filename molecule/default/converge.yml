@@ -1,8 +1,8 @@
 ---
-  - name: Converge
-    hosts: all
-    tasks:
-      - name: "Include ckaserer.users"
-        include_role:
-          name: "ckaserer.users"
+- name: Converge
+  hosts: all
+  tasks:
+    - name: "Include ckaserer.users"
+      include_role:
+        name: "ckaserer.users"
 ...
