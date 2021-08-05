@@ -3,7 +3,6 @@
     role_name: users
     author: ckaserer
     description: "create users"
-    company: "Gepardec IT Services GmbH"
 
     license: GPLv3
 
@@ -29,7 +28,6 @@
       - debian
       - centos
       - rhel
-      - gepardec
 
   dependencies: []
 ...

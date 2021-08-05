@@ -4,8 +4,16 @@
   driver:
     name: docker
   platforms:
-    - name: ansible-role-users
-      image: centos:7
+  - name: instance
+    image: "geerlingguy/docker-${MOLECULE_DISTRO:-ubuntu2004}-ansible:latest"
+    command: ${MOLECULE_DOCKER_COMMAND:-""}
+    privileged: yes
+    pre_build_image: true
+    tmpfs:
+      - /run
+      - /tmp
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup
   provisioner:
     name: ansible
   verifier:

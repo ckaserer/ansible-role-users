@@ -2,7 +2,7 @@
   - name: Converge
     hosts: all
     tasks:
-      - name: "Include ansible-role-users"
+      - name: "Include ckaserer.users"
         include_role:
-          name: "ansible-role-users"
+          name: "ckaserer.users"
 ...
