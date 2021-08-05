@@ -1,20 +1,20 @@
 ---
-  - name: Create users
-    user:
-      name: "{{ item }}"
-      password: "{{ lookup('password', '/tmp/.' + item + '_password chars=ascii_letters length=6 encrypt=sha512_crypt') }}"
-      append: true
-      state: present
-      createhome: true
-    with_items: "{{ users }}"
-    no_log: true
+- name: Create users
+  user:
+    name: "{{ item }}"
+    password: "{{ lookup('password', '/tmp/.' + item + '_password chars=ascii_letters length=6 encrypt=sha512_crypt') }}"
+    append: true
+    state: present
+    createhome: true
+  with_items: "{{ users }}"
+  no_log: true
 
-  - name: Copy password
-    copy:
-      content: "{{ lookup('password', '/tmp/.' + item + '_password chars=ascii_letters length=6') }}"
-      dest: "/home/{{ item }}/.password"
-      owner: "{{ item }}"
-      mode: '0400'
-    with_items: "{{ users }}"
-    no_log: true
+- name: Copy password
+  copy:
+    content: "{{ lookup('password', '/tmp/.' + item + '_password chars=ascii_letters length=6') }}"
+    dest: "/home/{{ item }}/.password"
+    owner: "{{ item }}"
+    mode: '0400'
+  with_items: "{{ users }}"
+  no_log: true
 ...
