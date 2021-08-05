@@ -70,12 +70,6 @@ jobs:
           branch: main
         continue-on-error: true
 
-      - name: Create a new tag
-        uses: phish108/autotag-action@1.1.37
-        id: autotag
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-        continue-on-error: true
   
   release:
     name: Release
@@ -83,6 +77,18 @@ jobs:
     needs:
       - merge
     steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+        with:
+          ref: main
+
+      - name: Create a new tag
+        uses: phish108/autotag-action@1.1.37
+        id: autotag
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+        continue-on-error: true
+
       - name: Create a new release
         uses: ncipollo/release-action@v1
         with:
