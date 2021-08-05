@@ -38,8 +38,6 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
-        with:
-          path: ckaserer.haproxy
 
       - name: Set up Python 3
         uses: actions/setup-python@v2
