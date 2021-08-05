@@ -10,10 +10,10 @@
     privileged: yes
     pre_build_image: true
     tmpfs:
-      - /run
-      - /tmp
+    - /run
+    - /tmp
     volumes:
-      - /sys/fs/cgroup:/sys/fs/cgroup
+    - /sys/fs/cgroup:/sys/fs/cgroup
   provisioner:
     name: ansible
   verifier:
