@@ -2,7 +2,7 @@
   galaxy_info:
     role_name: users
     author: ckaserer
-    description: "create users"
+    description: "create users and store the password in the users home folder"
 
     license: GPLv3
 
