@@ -85,6 +85,7 @@ jobs:
       uses: phish108/autotag-action@1.1.37
       id: autotag
       with:
+        branch: main
         github-token: ${{ secrets.GITHUB_TOKEN }}
       continue-on-error: true
 
