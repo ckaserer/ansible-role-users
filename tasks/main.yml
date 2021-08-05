@@ -3,9 +3,9 @@
     user:
       name: "{{ item }}"
       password: "{{ lookup('password', '/tmp/.' + item + '_password chars=ascii_letters length=6 encrypt=sha512_crypt') }}"
-      append: yes
+      append: true
       state: present
-      createhome: yes
+      createhome: true
     with_items: "{{ users }}"
     no_log: true
 
